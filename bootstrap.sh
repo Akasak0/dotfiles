@@ -16,7 +16,7 @@ DOTPATH=$HOME/dotfiles
 if [ ! -d "$DOTPATH" ]; then
   # 初回実行時はリポジトリがないので、clone してくる
   echo "Cloning dotfiles.git ..."
-  git clone https://git@bitbucket.org/yamauchi-yugen/dotfiles.git "$DOTPATH"
+  git clone https://git@https://github.com/Akasak0/dotfiles "$DOTPATH"
 else
   # すでにフォルダがある時はそのことを表示
   echo "$DOTPATH already downloaded."
@@ -60,4 +60,18 @@ NODE_VERSION=25.9.0
 
 mise use -g node@${NODE_VERSION}
 mise exec -- npm install -g chokidar-cli
+
+# gcc のシンボリックリンクの作成
+gcc_path=$(
+    find /opt/homebrew/bin -maxdepth 1 -type f -name 'g++-[0-9]*' |
+    sort -V |
+    tail -n 1
+)
+
+if [[ -z "$gcc_path" || ! -x "$gcc_path" ]]; then
+    echo "Error: GCC executable not found" >&2
+    exit 1
+fi
+
+ln -sfn "$gcc_path" /opt/homebrew/bin/g++
 
