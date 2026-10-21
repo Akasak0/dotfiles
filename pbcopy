@@ -1,0 +1,84 @@
+++ uname -m
++ UNAME=arm64
++ DOTPATH=/Users/akasako/dotfiles
++ '[' '!' -d /Users/akasako/dotfiles ']'
++ echo '/Users/akasako/dotfiles already downloaded.'
++ cd /Users/akasako/dotfiles
++ echo 'Deploying dotfiles ...'
++ for file in '.??*'
++ [[ .git = \.\g\i\t ]]
++ continue
++ for file in '.??*'
++ [[ .gitconfig = \.\g\i\t ]]
++ [[ .gitconfig = \.\D\S\_\S\t\o\r\e ]]
++ ln -fvns /Users/akasako/dotfiles/.gitconfig /Users/akasako/.gitconfig
++ for file in '.??*'
++ [[ .gitignore = \.\g\i\t ]]
++ [[ .gitignore = \.\D\S\_\S\t\o\r\e ]]
++ ln -fvns /Users/akasako/dotfiles/.gitignore /Users/akasako/.gitignore
++ for file in '.??*'
++ [[ .latexmkrc = \.\g\i\t ]]
++ [[ .latexmkrc = \.\D\S\_\S\t\o\r\e ]]
++ ln -fvns /Users/akasako/dotfiles/.latexmkrc /Users/akasako/.latexmkrc
++ for file in '.??*'
++ [[ .pytest_cache = \.\g\i\t ]]
++ [[ .pytest_cache = \.\D\S\_\S\t\o\r\e ]]
++ ln -fvns /Users/akasako/dotfiles/.pytest_cache /Users/akasako/.pytest_cache
++ for file in '.??*'
++ [[ .tmp.drivedownload = \.\g\i\t ]]
++ [[ .tmp.drivedownload = \.\D\S\_\S\t\o\r\e ]]
++ ln -fvns /Users/akasako/dotfiles/.tmp.drivedownload /Users/akasako/.tmp.drivedownload
++ for file in '.??*'
++ [[ .tmp.driveupload = \.\g\i\t ]]
++ [[ .tmp.driveupload = \.\D\S\_\S\t\o\r\e ]]
++ ln -fvns /Users/akasako/dotfiles/.tmp.driveupload /Users/akasako/.tmp.driveupload
++ for file in '.??*'
++ [[ .zprofile = \.\g\i\t ]]
++ [[ .zprofile = \.\D\S\_\S\t\o\r\e ]]
++ ln -fvns /Users/akasako/dotfiles/.zprofile /Users/akasako/.zprofile
++ for file in '.??*'
++ [[ .zshrc = \.\g\i\t ]]
++ [[ .zshrc = \.\D\S\_\S\t\o\r\e ]]
++ ln -fvns /Users/akasako/dotfiles/.zshrc /Users/akasako/.zshrc
++ xcode-select -p
++ command -v brew
++ brew bundle -v
+Warning: Formulae dependency graph sorting found a circular dependency:
+  libtiff, webp
+This is usually caused by stale dependency data in installed keg tabs.
+If it persists, run the following commands and try again:
+  brew update
+  brew uninstall --ignore-dependencies --force libtiff webp
+  brew install libtiff webp
+Warning: Formulae dependency graph sorting found a circular dependency:
+  libtiff, webp
+This is usually caused by stale dependency data in installed keg tabs.
+If it persists, run the following commands and try again:
+  brew update
+  brew uninstall --ignore-dependencies --force libtiff webp
+  brew install libtiff webp
++ PYTHON_VERSION=3.14.3
++ mise use -g python@3.14.3
+mise by @jdx – installing 1 tool
+mise ⇢ python@3.14.3  3ms · already installed
+mise ████████████████ 1/1 · installed 0 tools · 1 already installed in 7ms
++ mise exec -- python3 -m pip install pytest pytest-cov numpy pandas openpyxl tk
+
+[notice] A new release of pip is available: 26.2.1 -> 26.2.2
+[notice] To update, run: pip install --upgrade pip
++ NODE_VERSION=25.9.0
++ mise use -g node@25.9.0
+mise by @jdx – installing 1 tool
+mise ⇢ node@25.9.0  0ms · already installed
+mise ████████████████ 1/1 · installed 0 tools · 1 already installed in 1ms
++ mise exec -- npm install -g chokidar-cli
+Reshimming mise 25.9.0...
+++ brew --prefix
++ BREW_PREFIX=/opt/homebrew
++ GCC_BIN=/opt/homebrew/bin
+++ find /opt/homebrew/bin -maxdepth 1 -name 'g++-[0-9]*' -print
+++ sort -V
+++ tail -n 1
++ gcc_path=/opt/homebrew/bin/g++-16
++ [[ ! -x /opt/homebrew/bin/g++-16 ]]
++ ln -sfn /opt/homebrew/bin/g++-16 /opt/homebrew/bin/g++

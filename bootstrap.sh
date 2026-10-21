@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+set -euxo pipefail
+
 # エラーがあったらそこで即終了、設定していない変数を使ったらエラーにする
-set -eu
+# set -eu
 
 # is_arm という関数を用意しておく。毎回 uname -m を実行するのは莫迦らしいので、UNAME 環境変数で判断
 is_arm() { test "$UNAME" = "arm64"; }
@@ -61,17 +63,27 @@ NODE_VERSION=25.9.0
 mise use -g node@${NODE_VERSION}
 mise exec -- npm install -g chokidar-cli
 
-# gcc のシンボリックリンクの作成
-gcc_path=$(
-    find /opt/homebrew/bin -maxdepth 1 -type f -name 'g++-[0-9]*' |
+# GCC のシンボリックリンクを作成
+BREW_PREFIX=$(brew --prefix)
+GCC_BIN="$BREW_PREFIX/bin"
+
+gpp_path=$(
+    find "$GCC_BIN" -maxdepth 1 -name 'g++-[0-9]*' -print |
     sort -V |
     tail -n 1
 )
 
-if [[ -z "$gcc_path" || ! -x "$gcc_path" ]]; then
-    echo "Error: GCC executable not found" >&2
+gcc_path=$(
+    find "$GCC_BIN" -maxdepth 1 -name 'gcc-[0-9]*' -print |
+    sort -V |
+    tail -n 1
+)
+
+if [[ ! -x "$gcc_path" ]]; then
+    echo "Error: GCC executable not found in $GCC_BIN" >&2
     exit 1
 fi
 
-ln -sfn "$gcc_path" /opt/homebrew/bin/g++
+ln -sfn "$gpp_path" "$GCC_BIN/g++"
+ln -sfn "$gcc_path" "$GCC_BIN/gcc"
 
