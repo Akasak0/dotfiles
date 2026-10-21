@@ -13,6 +13,7 @@ cask "latexit" # Graphical interface for LaTeX
 cask "microsoft-teams" # Meet, chat, call, and collaborate in just one place
 cask "arc" # Chromium based browser
 cask "firefox" #Web browser# 
+cask "discord" # Voice and text chat software
 
 ### Homebrew
 brew "telnet" # User interface to the TELNET protocol
