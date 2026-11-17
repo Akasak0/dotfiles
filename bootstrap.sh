@@ -86,6 +86,19 @@ fi
 ln -sfn "$gpp_path" "$GCC_BIN/g++"
 ln -sfn "$gcc_path" "$GCC_BIN/gcc"
 
+# AtCoder Library の導入
+if [ ! -d "$HOME/src" ]; then
+    mkdir -p "$HOME/src"
+fi
+
+git clone https://github.com/atcoder/ac-library.git "$HOME/src/ac-library/"
+
+chmod 755 "$DOTPATH/scripts/a++"
+if [ ! -d "$HOME/bin" ]; then
+    mkdir -p "$HOME/bin"
+    chmod 755 "$HOME/bin"
+fi
+cp "$DOTPATH/scripts/a++" "$HOME/bin"
 
 # Countdown.app のアップデート
 PREVIOUS_PATH=$(pwd)
