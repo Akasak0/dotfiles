@@ -91,7 +91,9 @@ if [ ! -d "$HOME/src" ]; then
     mkdir -p "$HOME/src"
 fi
 
-git clone https://github.com/atcoder/ac-library.git "$HOME/src/ac-library/"
+if [ ! -d "$HOME/src/ac-library/" ]; then
+    git clone https://github.com/atcoder/ac-library.git "$HOME/src/ac-library/"
+fi
 
 chmod 755 "$DOTPATH/scripts/a++"
 if [ ! -d "$HOME/bin" ]; then
