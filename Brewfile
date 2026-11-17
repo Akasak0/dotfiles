@@ -14,6 +14,8 @@ cask "microsoft-teams" # Meet, chat, call, and collaborate in just one place
 cask "arc" # Chromium based browser
 cask "firefox" #Web browser# 
 cask "discord" # Voice and text chat software
+cask "iterm2" # Terminal emulator as alternative to Apple's Terminal app
+cask "font-hackgen-nerd" # Hackgen font for Lazyvim
 
 ### Homebrew
 brew "telnet" # User interface to the TELNET protocol
@@ -40,4 +42,4 @@ brew "gh" # GitHub command-line tool
 brew "tor" # Anonymizing overlay network for TCP
 brew "ghidra" # Multi-platform software reverse engineering framework
 brew "sl" # Prints a steam locomotive if you type sl instead of ls
-
+brew "llvm" # Next-gen compiler infrastructure
