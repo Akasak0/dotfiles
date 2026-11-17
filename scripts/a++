@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+g++ "$1" -I "$HOME/src/ac-library"
