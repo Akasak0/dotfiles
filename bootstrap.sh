@@ -51,7 +51,7 @@ fi
 brew bundle -v
 
 # Python のアップデート
-PYTHON_VERSION=3.14.3
+PYTHON_VERSION=3.15.1
 
 mise use -g python@${PYTHON_VERSION}
 mise exec -- python3 -m pip install pytest pytest-cov numpy pandas openpyxl tk
@@ -86,3 +86,35 @@ fi
 ln -sfn "$gpp_path" "$GCC_BIN/g++"
 ln -sfn "$gcc_path" "$GCC_BIN/gcc"
 
+
+# Countdown.app のアップデート
+PREVIOUS_PATH=$(pwd)
+if [ -d "$HOME/countdown" ]; then
+    echo "Updating Countdown.app ..."
+    
+    # 更新の前に終了しておく
+    osascript -e 'tell application "Countdown.app" to quit'
+
+    # 前のディレクトリを記録してから移動
+    cd "$HOME/countdown/"
+
+    # 前のブランチを記録してから main に checkout
+    PREVIOUS_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+    git checkout main
+
+    # 実際に情報を更新
+    git pull origin main
+    bash scripts/build-app.sh
+    open dist/Countdown.app
+
+    # 作業前の状態に戻す
+    git checkout "$PREVIOUS_BRANCH"
+else
+    echo "Installing Countdown.app..."
+
+    # クローンしてビルド
+    git clone https://github.com/tuttu630tttu/countdown.git "$HOME/countdown"
+    cd "$HOME/countdown"
+    bash scripts/build-app.sh
+fi
+cd "$PREVIOUS_PATH"
