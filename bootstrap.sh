@@ -133,3 +133,4 @@ else
     bash scripts/build-app.sh
 fi
 cd "$PREVIOUS_PATH"
+

@@ -43,3 +43,4 @@ brew "tor" # Anonymizing overlay network for TCP
 brew "ghidra" # Multi-platform software reverse engineering framework
 brew "sl" # Prints a steam locomotive if you type sl instead of ls
 brew "llvm" # Next-gen compiler infrastructure
+
